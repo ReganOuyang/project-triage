@@ -1,0 +1,23 @@
+[
+  {
+    "patientGuid":"1234",
+    "firstName":"Sylvia",
+    "lastName":"Hernandez",
+    "dob":"2012-09-01",
+    "sexAtBirth":"F"
+  },
+  {
+    "patientGuid":"2345",
+    "firstName":"Henry",
+    "lastName":"Jose",
+    "dob":"1999-09-06",
+    "sexAtBirth":"F"
+  },
+  {
+  "patientGuid":"3456",
+  "firstName":"Mark",
+  "lastName":"Abfer",
+  "dob":"2002-12-01",
+  "sexAtBirth":"M"
+  }
+]

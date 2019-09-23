@@ -1,0 +1,11 @@
+<? XML>
+<patients>
+  <patient firstName="Tom" lastName="Gregory">
+  </patient>
+  <patients>
+    <name>
+      <firstName>Tom</firstName>
+      <lastName>Gregory</lastName>
+    </name>
+  </patient>
+</patients>

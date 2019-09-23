@@ -3,9 +3,145 @@
 <head>
   <meta charset="utf-8">
   <title>My Page Title</title>
-  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-<p>My content goes here.</p>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="row">
+      <div id= "mainContent" class="col">
+        Registration Form
+
+        <div id="patientRecordApp">
+          <form @submit.prevent="handleCreateRecord()">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" id="RecordfirstName" placeholder="First Name" v-model="formPatient.firstName">
+    <small id="firstname" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-control" id="RecordlastName" placeholder="Last Name" v-model="formPatient.lastName">
+    <small id="lastname" class="form-text text-muted"></small>
+    <div class="form-group">
+      <label for="dob">DOB</label>
+      <input type="date" class="form-control" id="Recorddob" placeholder="DOB" v-model="formPatient.dob">
+      <small id="dob" class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+      <label for="sexAtBirth">Sex at Birth</label>
+      <input type="text" class="form-control" id="RecordsexAtBirth" placeholder="Sex at Birth" v-model="formPatient.sexAtBirth">
+      <small id="sexAtBirth" class="form-text text-muted"></small>
+    </div>
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+
+          <table class="table table-sm table-hover">
+            <thead>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>DOB</th>
+              <th>SexAtBirth</th>
+            </thead>
+            <tbody>
+              <tr v-for="patient in patients" @click="selectRecord(p)">
+                <td>{{patient.firstName}}</td>
+                <td>{{patient.lastName}}</td>
+                <td>{{patient.dob}}</td>
+                <td>{{patient.sexAtBirth}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="patientWaitingApp" class="col-md-4 queueView">
+
+          <div class = "patientWaiting patient" :class="patient.priority + 'Priority'" v-for="patient in patients">
+            Arrival:<br>
+
+            <span class="patientName">{{patient.lastName}}</span>
+            <span class="patientName">{{patient.firstName}}</span> <br>
+            <span>{{patient.sexAtBirth}}</span><br>
+            <span>{{patient.dob}}</span> <br>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="waitingapp.js"></script>
+<script src="recordapp.js"></script>
+
+
+<!-- // var app = new Vue({
+// el:'#patientWaitingApp',
+// data:{
+//   patients:[
+//     {
+//       "patientGuid":"1234",
+//       "firstName":"Sylvia",
+//       "lastName":"Hernandez",
+//       "dob":"2012-09-01",
+//       "sexAtBirth":"F"
+//     },
+//     {
+//       "patientGuid":"2345",
+//       "firstName":"Henry",
+//       "lastName":"Jose",
+//       "dob":"1999-09-06",
+//       "sexAtBirth":"F"
+//     },
+//     {
+//     "patientGuid":"3456",
+//     "firstName":"Mark",
+//     "lastName":"Abfer",
+//     "dob":"2002-12-01",
+//     "sexAtBirth":"M"
+//     }
+//   ]
+// }
+// }) -->
+
 </body>
 </html>
