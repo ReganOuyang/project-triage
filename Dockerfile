@@ -10,7 +10,7 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 â€¨       && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) \
 !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); \
 echo 'Invalid installer' . PHP_EOL; exit(1); }" \â€¨
-       â€ php /tmp/composer-setup.php \
+        php /tmp/composer-setup.php \
             --no-ansi \â€¨
             --install-dir=/usr/local/bin \â€¨
             --filename=composer \
